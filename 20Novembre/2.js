@@ -7,16 +7,9 @@ function check(dictionary){
         return "YES"
     }
     else if(keys.length == 2){
-        if (dictionary[Math.max(keys[0], keys[1])] == 1){
-            if(Math.abs(keys[1]- keys[0]) == 1){
-                return "YES"
-            }
-            return "NO"
-        }
-        else if (dictionary["1"] == 1){
+        if ((dictionary[Math.max(keys[0], keys[1])] == 1) && (Math.abs(keys[1]- keys[0]) == 1) || (dictionary["1"] == 1)){
             return "YES"
         }
-        return "NO"
     }
     return "NO"
 }
