@@ -1,26 +1,19 @@
 function processData(input) {
     var array = input.split("\n").map(function (x) {return x.split(" ");})
-    array = value(array.slice(1,array.length))
-    for(var k = 0; k < array.length; k = k + 1){
+    for(var k = 1; k < array.length; k = k + 2){
         var line = array[k]
-
-    if(line.length == 1){
-
-        console.log("YES")
-    }
-    else if(line.length == 2){
-
-        console.log("NO")
-    }else{
-
-        var sum = sum_(line.map(function(item) { return parseInt(item, 10);}))
-        if(check_(sum)){
-
+        if(line.length == 1){
             console.log("YES")
         }
-        else{console.log("NO")}
-
-    }
+        else if(line.length == 2){
+            console.log("NO")
+        }else{
+            var sum = sum_(line.map(function(item) { return parseInt(item, 10);}))
+            if(check_(sum)){
+                console.log("YES")
+            }
+            else{console.log("NO")}
+        }
     }
 }
 function check_(array){
