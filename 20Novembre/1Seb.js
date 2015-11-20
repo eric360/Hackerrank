@@ -10,7 +10,6 @@ function processData(input) {
         solve(arr, n);
     }
 }
-
 var solve = function (arr, n) {
     var left = 0,
         right = sum(arr, n),
@@ -29,7 +28,6 @@ var solve = function (arr, n) {
     }
     console.log("NO");
 };
-
 var sum = function (arr, n) {
     var res = 0, i;
     for (i = 1; i < n; ++i) {
