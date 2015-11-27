@@ -24,15 +24,15 @@ function decodeWord(word,dict){
 function substitutionDictionary(key){
     var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var keyShort = key.split("").reverse().join("").replace(/(.)(?=.*\1)/g, "").split("").reverse().join("")
-    var dict = {}
+    var columns = {}
     for(var k = 0; k < keyShort.length; k++){
-        dict[keyShort[k]] = ""
+        columns[keyShort[k]] = ""
     }
     var lettersShort = letters.replace(RegExp(keyShort.split("").join("|"), "g"), "");
     for(var k = 0; k < lettersShort.length; k = k + keyShort.length){
         for(var i = 0; i < keyShort.length; i++){
             if((k + i) <lettersShort.length){
-                dict[keyShort[i]] = dict[keyShort[i]] + lettersShort[k + i]
+                columns[keyShort[i]] += lettersShort[k + i]
             }
          }
     }
@@ -40,11 +40,11 @@ function substitutionDictionary(key){
     var lettersNew = ""
     for(var k = 0; k < keyShort.length; k++){
         lettersNew += keyShortSort[k]
-        lettersNew += dict[keyShortSort[k]]
+        lettersNew += columns[keyShortSort[k]]
     }
-    var res = {}
+    var dict = {}
     for(var k = 0; k < lettersNew.length; k++){
-        res[lettersNew[k]] = letters[k]
+        dict[lettersNew[k]] = letters[k]
     }
-    return res
+    return dict
 }
