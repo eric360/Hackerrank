@@ -9,8 +9,7 @@ function processData(input) {
 function decode(array,dict){
     var res = []
     for(var k = 0; k < array.length; k++){
-        var word = array[k]
-        res.push(decodeWord(word,dict))
+        res.push(decodeWord(array[k],dict))
     }
     return res
 }
