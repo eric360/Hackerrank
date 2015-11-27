@@ -22,10 +22,14 @@ function substitutionDictionary(key){
          }
     }
     var  keyShortSort = keyShort.split("").sort().join("")
-    var res = ""
+    var lettersNew = ""
     for(var k = 0; k < keyShort.length; k++){
-        res += keyShortSort[k]
-        res += dict[keyShortSort[k]]
+        lettersNew += keyShortSort[k]
+        lettersNew += dict[keyShortSort[k]]
+    }
+    var res = {}
+    for(var k = 0; k < lettersNew.length; k++){
+        res[lettersNew[k]] = letters[k]
     }
     return res
 }
