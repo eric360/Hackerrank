@@ -3,10 +3,18 @@ function processData(input) {
     for(var k = 1; k < array.length; k = k + 2){
         var key = array[k][0]
         var words = array[k+1]
-        console.log(decode("LDXTW",substitutionDictionary(key)))
+        console.log(decode(words,substitutionDictionary(key)).join(' '))
     }
 }
-function decode(word,dict){
+function decode(array,dict){
+    var res = []
+    for(var k = 0; k < array.length; k++){
+        var word = array[k]
+        res.push(decodeWord(word,dict))
+    }
+    return res
+}
+function decodeWord(word,dict){
     var res = ""
     for(var k = 0; k < word.length; k++){
         res += dict[word[k]]
