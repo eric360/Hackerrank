@@ -3,8 +3,15 @@ function processData(input) {
     for(var k = 1; k < array.length; k = k + 2){
         var key = array[k][0]
         var words = array[k+1]
-        console.log(substitutionDictionary(key))
+        console.log(decode("LDXTW",substitutionDictionary(key)))
     }
+}
+function decode(word,dict){
+    var res = ""
+    for(var k = 0; k < word.length; k++){
+        res += dict[word[k]]
+    }
+    return res
 }
 function substitutionDictionary(key){
     var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
