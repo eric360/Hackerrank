@@ -13,13 +13,6 @@ function check(dictionary){
     }
     return "NO"
 }
-function values(dictionary){
-    var res = []
-    for(key in dictionary){
-        res.push(dictionary[key])
-    }
-    return res
-}
 function occurrenceDictionary(dictionary){
     var res = {}
     for(var key in dictionary){
