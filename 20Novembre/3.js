@@ -7,7 +7,25 @@ function processData(input) {
     }
 }
 function substitutionDictionary(key){
-    var res = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    var keyShortened = key.split("").reverse().join("").replace(/(.)(?=.*\1)/g, "").split("").reverse().join("")
-    return keyShortened
+    var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var keyShort = key.split("").reverse().join("").replace(/(.)(?=.*\1)/g, "").split("").reverse().join("")
+    var dict = {}
+    for(var k = 0; k < keyShort.length; k++){
+        dict[keyShort[k]] = ""
+    }
+    var lettersShort = letters.replace(RegExp(keyShort.split("").join("|"), "g"), "");
+    for(var k = 0; k < lettersShort.length; k = k + keyShort.length){
+        for(var i = 0; i < keyShort.length; i++){
+            if((k + i) <lettersShort.length){
+                dict[keyShort[i]] = dict[keyShort[i]] + lettersShort[k + i]
+            }
+         }
+    }
+    var  keyShortSort = keyShort.split("").sort().join("")
+    var res = ""
+    for(var k = 0; k < keyShort.length; k++){
+        res += keyShortSort[k]
+        res += dict[keyShortSort[k]]
+    }
+    return res
 }
